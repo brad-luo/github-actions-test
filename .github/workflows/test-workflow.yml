@@ -1,0 +1,16 @@
+name: Test Workflow
+
+on:
+  schedule:
+    - cron: "*/5 * * * *" # every 5 minutes
+  workflow_dispatch:       # still keep manual trigger if needed
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Run a quick test
+        run: echo "Hello from GitHub Actions!"
